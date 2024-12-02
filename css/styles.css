@@ -192,6 +192,48 @@ main {
     transform: none; /* Disable zoom */
 }
 
+/* About Me Section */
+.about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Space between image and text */
+    max-width: 750px; /* Restrict content width for readability */
+    margin: 0 auto; /* Center the content horizontally */
+}
+
+.profile-pic {
+    width: 1500px; /* Control image width */
+    height: 700px; /* Control image height */
+    object-fit: cover; /* Ensure the image maintains its aspect ratio */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+    transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.bio {
+    font-size: 1rem; /* Set font size for the bio */
+    line-height: 1.6; /* Improve text readability */
+    color: #555; /* Slightly lighter color for text */
+}
+
+/* Footer */
+footer {
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    padding: 1rem;
+}
+
 /* Responsive Adjustments */
 
 /* For tablets (max-width: 1024px) */
@@ -212,12 +254,4 @@ main {
     main {
         padding: 0rem; /* Reduce padding in main content */
     }
-}
-
-/* Footer */
-footer {
-    background-color: #f9f9f9;
-    color: #333;
-    text-align: center;
-    padding: 1rem;
 }
