@@ -235,19 +235,15 @@ footer {
 
 /* Responsive Adjustments */
 
-/* For tablets (max-width: 1024px) */
-@media (max-width: 1024px) {
-    .photo-grid-placeholder {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-    }
-
-}
-
 /* For mobile devices (max-width: 768px) */
 @media (max-width: 768px) {
     .photo-grid-placeholder {
         grid-template-columns: 1fr; /* 1 column on mobile */
-        gap: 0.5;
+        gap: 0.5rem;
+    }
+
+    .photo-grid-placeholder .grid-item {
+        height: 600px;
     }
 
     main {
