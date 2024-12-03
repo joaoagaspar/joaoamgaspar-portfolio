@@ -286,8 +286,7 @@ footer {
     }
 
     .photo-grid-placeholder .grid-item .photo-text {
-        transition: none; /* Disable text transition for faster response */
-        opacity: 1; /* Ensure text is visible immediately */
+        pointer-events: auto; /* Allow touch interactions with text */
     }
 
     /* Ensure overlays are styled appropriately for touch */
@@ -302,10 +301,5 @@ footer {
     /* Hover Effects */
     .photo-grid-placeholder .grid-item:hover {
         transform: none;
-    }
-
-    .photo-grid-placeholder .grid-item::before {
-        transition: none; /* Disable transition for immediate effect */
-        opacity: 1; /* Ensure the overlay is visible immediately */
     }
 }

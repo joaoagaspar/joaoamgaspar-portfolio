@@ -72,31 +72,28 @@ document.addEventListener("DOMContentLoaded", () => {
 // Select all grid items
 const gridItems = document.querySelectorAll('.photo-grid-placeholder .grid-item');
 
-// Improve responsiveness for touch
+// Touch functionality
 gridItems.forEach((item) => {
     item.addEventListener('touchstart', (e) => {
-        e.preventDefault(); // Prevent scrolling or unintended touch actions
+        e.preventDefault(); // Prevent default scrolling or tap behavior
 
-        // Remove 'touch-active' from other items
+        // Remove the 'touch-active' class from other items
         gridItems.forEach((otherItem) => {
             if (otherItem !== item) {
                 otherItem.classList.remove('touch-active');
             }
         });
 
-        // Immediately add 'touch-active' to the current item
-        item.classList.add('touch-active');
-    });
-
-    // Optional: Close the overlay on a second touch
-    item.addEventListener('touchend', () => {
-        setTimeout(() => {
+        // Toggle the 'touch-active' class for the touched item
+        if (item.classList.contains('touch-active')) {
             item.classList.remove('touch-active');
-        }, 5000); // Keep the overlay visible for 5 seconds (or adjust as needed)
+        } else {
+            item.classList.add('touch-active');
+        }
     });
 });
 
-// Close overlays when tapping outside
+// Optional: Close overlays when tapping outside
 document.addEventListener('touchstart', (e) => {
     if (!e.target.closest('.grid-item')) {
         gridItems.forEach((item) => item.classList.remove('touch-active'));
