@@ -164,6 +164,10 @@ main {
     font-size: 1rem; /* Smaller font for the year */
 }
 
+.photo-grid-placeholder .grid-item.hover-active .photo-text {
+    opacity: 1; /* Show hover text when .hover-active is added */
+}
+
 .photo-feed {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create flexible grid with fixed photo sizes */
@@ -268,5 +272,18 @@ footer {
     .bio {
         font-size: 0.9rem; /* Slightly smaller font size */
         line-height: 1.4; /* Adjust line height for smaller text */
+    }
+
+    .photo-grid-placeholder .grid-item:hover .photo-text {
+        opacity: 1; /* Ensure hover text shows on touch */
+    }
+
+    .photo-grid-placeholder .grid-item {
+        pointer-events: auto; /* Ensure grid items are touch-enabled */
+    }
+
+    /* Prevent default behavior for link clicks if touch event occurs */
+    .photo-grid-placeholder .grid-item a {
+        pointer-events: none; /* Disable direct click through the photo text */
     }    
 }

@@ -68,3 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+document.querySelectorAll('.photo-grid-placeholder .grid-item').forEach((item) => {
+    item.addEventListener('touchstart', () => {
+        item.classList.add('hover-active');
+    });
+
+    item.addEventListener('touchend', () => {
+        setTimeout(() => {
+            item.classList.remove('hover-active');
+        }, 2000); // Keep hover effect active for 2 seconds
+    });
+});
