@@ -147,10 +147,21 @@ main {
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 2;
+    pointer-events: none; /* Ensures hover text doesn't block interactions */
 }
 
-.photo-grid-placeholder .grid-item:hover .photo-text {
-    opacity: 1; /* Show text on hover */
+.photo-grid-placeholder .grid-item:hover .photo-text,
+.photo-grid-placeholder .grid-item.touch-active .photo-text {
+    opacity: 1; /* Show text on hover or touch-active state */
+}
+
+/* Overlay Always Visible for .touch-active */
+.photo-grid-placeholder .grid-item.touch-active::before {
+    opacity: 1; /* Ensure overlay stays visible */
+}
+
+.photo-grid-placeholder .grid-item.touch-active {
+    pointer-events: auto; /* Allow normal interaction on touch-active state */
 }
 
 /* City Name and Year Styling */
@@ -248,7 +259,6 @@ footer {
 
     .photo-grid-placeholder .grid-item {
         height: 600px;
-        pointer-events: auto; /* Ensure touch interactions work */
     }
 
     main {
@@ -275,12 +285,21 @@ footer {
         line-height: 1.4; /* Adjust line height for smaller text */
     }
 
-    .photo-grid-placeholder .grid-item:hover .photo-text {
-        opacity: 1; /* Ensure hover text shows on touch */
+    .photo-grid-placeholder .grid-item .photo-text {
+        pointer-events: auto; /* Allow touch interactions with text */
     }
 
-    /* Prevent default behavior for link clicks if touch event occurs */
-    .photo-grid-placeholder .grid-item a {
-        pointer-events: none; /* Disable direct click through the photo text */
-    }    
+    /* Ensure overlays are styled appropriately for touch */
+    .photo-grid-placeholder .grid-item.touch-active::before {
+        opacity: 1;
+    }
+
+    .photo-grid-placeholder .grid-item.touch-active .photo-text {
+        opacity: 1;
+    }
+
+    /* Optional: Disable hover effects on mobile if not needed */
+    .photo-grid-placeholder .grid-item:hover .photo-text {
+        opacity: 0; /* Ignore hover for mobile screens */
+    }
 }

@@ -69,14 +69,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.querySelectorAll('.photo-grid-placeholder .grid-item').forEach((item) => {
-    item.addEventListener('touchstart', () => {
-        // Remove hover-active from all items
-        document.querySelectorAll('.photo-grid-placeholder .grid-item').forEach((el) => {
-            el.classList.remove('hover-active');
+// Select all grid items
+const gridItems = document.querySelectorAll('.photo-grid-placeholder .grid-item');
+
+// Touch functionality
+gridItems.forEach((item) => {
+    item.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Prevent default scrolling or tap behavior
+
+        // Remove the 'touch-active' class from other items
+        gridItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('touch-active');
+            }
         });
 
-        // Add hover-active to the current item
-        item.classList.add('hover-active');
+        // Toggle the 'touch-active' class for the touched item
+        if (item.classList.contains('touch-active')) {
+            item.classList.remove('touch-active');
+        } else {
+            item.classList.add('touch-active');
+        }
     });
+});
+
+// Optional: Close overlays when tapping outside
+document.addEventListener('touchstart', (e) => {
+    if (!e.target.closest('.grid-item')) {
+        gridItems.forEach((item) => item.classList.remove('touch-active'));
+    }
 });
