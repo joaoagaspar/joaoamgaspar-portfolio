@@ -88,17 +88,17 @@ main {
 .photo-grid-placeholder {
     display: grid; /* Use CSS Grid */
     grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 1rem; /* Space between grid items */
-    padding: 0rem;
+    gap: 1rem; /* Increased space between grid items */
+    padding: 1rem; /* Optional padding around the grid */
     justify-items: center; /* Center items in their grid cells */
 }
 
 /* Grid Item Styling */
 .photo-grid-placeholder .grid-item {
     position: relative;
-    width: 100%; /* Responsive width */
-    max-width: 780px; /* Optional: limit the maximum width of each grid item */
-    height: 1000px;
+    width: 90%; /* Slightly smaller width */
+    max-width: 700px; /* Reduced max width for smaller photos */
+    height: auto; /* Let height adjust naturally based on content */
     aspect-ratio: 3 / 2; /* Maintain 3:2 aspect ratio */
     background-color: #ced4da; /* Placeholder background color */
     display: flex;
