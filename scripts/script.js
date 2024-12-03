@@ -71,12 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelectorAll('.photo-grid-placeholder .grid-item').forEach((item) => {
     item.addEventListener('touchstart', () => {
-        item.classList.add('hover-active');
-    });
+        // Remove hover-active from all items
+        document.querySelectorAll('.photo-grid-placeholder .grid-item').forEach((el) => {
+            el.classList.remove('hover-active');
+        });
 
-    item.addEventListener('touchend', () => {
-        setTimeout(() => {
-            item.classList.remove('hover-active');
-        }, 5000); // Keep hover effect active for 5 seconds
+        // Add hover-active to the current item
+        item.classList.add('hover-active');
     });
 });

@@ -248,6 +248,7 @@ footer {
 
     .photo-grid-placeholder .grid-item {
         height: 600px;
+        pointer-events: auto; /* Ensure touch interactions work */
     }
 
     main {
@@ -276,10 +277,6 @@ footer {
 
     .photo-grid-placeholder .grid-item:hover .photo-text {
         opacity: 1; /* Ensure hover text shows on touch */
-    }
-
-    .photo-grid-placeholder .grid-item {
-        pointer-events: auto; /* Ensure grid items are touch-enabled */
     }
 
     /* Prevent default behavior for link clicks if touch event occurs */
