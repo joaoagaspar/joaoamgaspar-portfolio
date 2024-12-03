@@ -249,4 +249,24 @@ footer {
     main {
         padding: 0rem; /* Reduce padding in main content */
     }
+
+    /* About Me Section Responsiveness */
+    .about-me {
+        padding: 1rem; /* Reduce padding for smaller screens */
+        text-align: left; /* Center-align text for better appearance */
+    }
+
+    .about-content {
+        gap: 1rem; /* Reduce gap between image and text */
+    }
+
+    .profile-pic {
+        width: 100%; /* Make image responsive to the container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .bio {
+        font-size: 0.9rem; /* Slightly smaller font size */
+        line-height: 1.4; /* Adjust line height for smaller text */
+    }    
 }
