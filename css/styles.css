@@ -297,9 +297,4 @@ footer {
     .photo-grid-placeholder .grid-item.touch-active .photo-text {
         opacity: 1;
     }
-
-    /* Optional: Disable hover effects on mobile if not needed */
-    .photo-grid-placeholder .grid-item:hover .photo-text {
-        opacity: 0; /* Ignore hover for mobile screens */
-    }
 }
