@@ -77,6 +77,6 @@ document.querySelectorAll('.photo-grid-placeholder .grid-item').forEach((item) =
     item.addEventListener('touchend', () => {
         setTimeout(() => {
             item.classList.remove('hover-active');
-        }, 2000); // Keep hover effect active for 2 seconds
+        }, 5000); // Keep hover effect active for 5 seconds
     });
 });
