@@ -190,16 +190,17 @@ footer {
         width: 100%;
         height: 100%;
         overflow-x: scroll; /* Enable horizontal scrolling */
+        overflow-y: hidden; /* Prevent vertical scrolling unless necessary */
         background-color: white; /* White background */
         scroll-snap-type: x mandatory; /* Smooth snap scrolling */
     }
 
     .modal-content {
         display: block;
-        margin: 0 auto;
+        margin: 0; /* Remove margins */
         width: 100%;
         height: 100%;
-        object-fit: contain; /* Ensure proper scaling */
+        object-fit: contain; /* Ensure the image scales while maintaining aspect ratio */
         scroll-snap-align: center; /* Center the image during scrolling */
     }
 
@@ -210,5 +211,15 @@ footer {
     /* Remove Arrows */
     .arrow, .left-arrow, .right-arrow {
         display: none;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: black;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
     }
 }
