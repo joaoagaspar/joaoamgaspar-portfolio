@@ -99,3 +99,56 @@ document.addEventListener('touchstart', (e) => {
         gridItems.forEach((item) => item.classList.remove('touch-active'));
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.querySelector(".modal");
+    const images = document.querySelectorAll(".masonry-item img");
+    const modalContent = document.querySelector(".modal-content");
+
+    let currentIndex = 0; // To track the current image
+    let startX = 0; // Starting X position of a touch
+
+    // Open modal with the clicked image
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalContent.src = img.src; // Set the modal image source
+            currentIndex = index;
+            document.body.classList.add("modal-open");
+        });
+    });
+
+    // Close modal on outside click
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+        }
+    });
+
+    // Handle touch start
+    modal.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX; // Record starting touch position
+    });
+
+    // Handle touch move
+    modal.addEventListener("touchend", (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const threshold = 50; // Minimum swipe distance
+
+        // Detect swipe direction
+        if (startX - endX > threshold) {
+            // Swipe left -> Next image
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                modalContent.src = images[currentIndex].src;
+            }
+        } else if (endX - startX > threshold) {
+            // Swipe right -> Previous image
+            if (currentIndex > 0) {
+                currentIndex--;
+                modalContent.src = images[currentIndex].src;
+            }
+        }
+    });
+});
