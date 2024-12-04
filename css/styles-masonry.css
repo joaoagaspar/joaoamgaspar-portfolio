@@ -17,45 +17,43 @@ header {
     background-color: #f9f9f9;
     color: #333;
     text-align: center;
-    font-weight: bold; /* Make the header text bold */    
+    font-weight: bold;    
 }
 
 header h1 {
     font-size: 1.8rem;
-    margin: 0; /* Remove default margin from header text */
+    margin: 0;
 }
 
 /* Navigation Bar Styles */
 nav {
     display: flex;
-    justify-content: space-between; /* Push navigation items and Instagram to opposite sides */
+    justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
 }
 
-/* Instagram Icon Link */
 .instagram-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
 }
 
-/* Instagram Icon Styling */
 .instagram-icon {
-    width: 35px; /* Set the size of the Instagram icon */
-    height: 35px; /* Maintain the aspect ratio */
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease;
 }
 
 .instagram-link:hover .instagram-icon {
-    transform: scale(1.1); /* Slightly zoom the icon on hover */
+    transform: scale(1.1);
 }
 
 nav ul {
-    display: flex; /* Arrange list items in a row */
+    display: flex;
     list-style: none;
-    gap: 1rem; /* Add space between links */
+    gap: 1rem;
 }
 
 nav ul li a {
@@ -75,28 +73,29 @@ main {
 /* Masonry Grid */
 .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible columns */
-    gap: 0.5rem; /* Space between images */
-    max-width: 1200px; /* Maximum width for large screens */
-    margin: 0 auto; /* Center the grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .masonry-item {
     display: flex;
-    overflow: hidden; /* Hide overflow to ensure grid alignment */
-    height: 400px; /* Set a fixed height for all items */
+    overflow: hidden;
+    height: 400px;
 }
 
 .masonry-item img {
     width: 100%;
-    height: 100%; /* Make the image fill the container height */
-    object-fit: cover; /* Crop the image to fit the container */
-    object-position: center; /* Center the image inside the container */
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
 }
 
-
+/* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -104,7 +103,7 @@ main {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
@@ -128,7 +127,7 @@ main {
 .arrow {
     position: absolute;
     top: 50%;
-    font-size: 3rem; /* Adjust size for Font Awesome or SVG */
+    font-size: 3rem;
     color: white;
     cursor: pointer;
     user-select: none;
@@ -155,7 +154,7 @@ main {
 }
 
 .arrow svg, .arrow i {
-    width: 36px; /* Ensure consistent sizing */
+    width: 36px;
     height: 36px;
 }
 
@@ -170,12 +169,46 @@ footer {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .masonry-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .masonry-grid {
-        grid-template-columns: repeat(1, 1fr); /* 1 column on mobile devices */
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Mobile-Specific Modal Styles */
+@media (max-width: 768px) {
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: scroll; /* Enable horizontal scrolling */
+        background-color: white; /* White background */
+        scroll-snap-type: x mandatory; /* Smooth snap scrolling */
+    }
+
+    .modal-content {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ensure proper scaling */
+        scroll-snap-align: center; /* Center the image during scrolling */
+    }
+
+    body.modal-open {
+        overflow: hidden; /* Prevent background scrolling */
+    }
+
+    /* Remove Arrows */
+    .arrow, .left-arrow, .right-arrow {
+        display: none;
     }
 }
